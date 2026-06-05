@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoja de Registro</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: sans-serif;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        .etiqueta-pequena {
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <th rowspan="2">NOMBRE</th>
+            <th colspan="5">CARRERA</th>
+            <th>ALUM /<br>PROFR</th>
+            <th rowspan="2">PRÉSTAMO</th>
+            <th>HR. DE PRÉSTAMO</th>
+            <th>HR. DE ENTREGA</th>
+        </tr>
+        
+        <tr>
+            <td>C</td>
+            <td>G</td>
+            <td>S</td>
+            <td>IP</td>
+            <td>IN</td>
+            
+            <td>
+                A <input type="radio" name="rol" value="Alumno"> <br>
+                P <input type="radio" name="rol" value="Profesor">
+            </td>
+            
+            <td class="etiqueta-pequena text-left">
+                Fecha: <input type="date"><br>
+                Hora: <input type="time"><br>
+                Firma: <input type="text">
+            </td>
+            <td class="etiqueta-pequena text-left">
+                Fecha: <input type="date"><br>
+                Hora: <input type="time"><br>
+                Firma: <input type="text">
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="text" placeholder="Escribe el nombre"></td>
+            <td colspan="5">
+                Grupo: <input type="text" size="5">
+            </td>
+            <td></td>
+            <td><input type="text" placeholder="Equipo prestado"></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+</html>

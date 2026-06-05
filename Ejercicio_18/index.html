@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIM UAS - Propuesta de Rediseño</title>
+    <style>
+        /* Variables de color para mantener la identidad institucional */
+        :root {
+            --azul-uas: #003366;
+            --amarillo-uas: #ffcc00;
+            --gris-fondo: #f4f4f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--gris-fondo);
+        }
+
+        /* Encabezado Principal */
+        header {
+            background-color: var(--azul-uas);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Navegación Amarilla */
+        nav {
+            background-color: var(--amarillo-uas);
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        nav a:hover {
+            color: var(--azul-uas);
+        }
+
+        /* Layout Principal con CSS Grid */
+        .contenedor {
+            display: grid;
+            grid-template-columns: 3fr 1fr; /* 3/4 para noticias, 1/4 para barra lateral */
+            gap: 25px;
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Área de Contenido Central */
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .publicacion {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Efecto de tarjeta moderna */
+        }
+
+        .banner-oferta {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd; /* Aquí sustituirás por la imagen real */
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Barra Lateral (Sidebar) */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .widget {
+            background: white;
+            padding: 0 0 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .widget h3 {
+            background-color: var(--azul-uas);
+            color: white;
+            margin: 0 0 15px 0;
+            padding: 12px;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .widget ul {
+            list-style: none;
+            padding: 0 15px;
+            margin: 0;
+        }
+
+        .widget li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .widget li a {
+            text-decoration: none;
+            color: #444;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Universidad Autónoma de Sinaloa</h1>
+        <h2>Facultad de Ingeniería Mochis</h2>
+    </header>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Misión y Visión</a>
+        <a href="#">Licenciatura</a>
+        <a href="#">Posgrado</a>
+        <a href="#">SECIHTI</a>
+    </nav>
+
+    <div class="contenedor">
+        <main>
+            <div class="banner-oferta">
+                [Imagen de Oferta Educativa]
+            </div>
+
+            <article class="publicacion">
+                <h3 style="color: #003366;">Curso de regularización</h3>
+                <p>La Facultad de Ingeniería Mochis te invita al curso de: Cálculo Diferencial e Integral.</p>
+                <div style="height: 300px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                    [Flyer del Curso]
+                </div>
+            </article>
+        </main>
+
+        <aside>
+            <div class="widget">
+                <h3>Menú Principal</h3>
+                <ul>
+                    <li><a href="#">Dirección Escolar</a></li>
+                    <li><a href="#">Servicios Académicos</a></li>
+                    <li><a href="#">Programa de Tutorías</a></li>
+                    <li><a href="#">Servicios Escolares</a></li>
+                </ul>
+            </div>
+            
+            <div class="widget">
+                <h3>Calendario Escolar</h3>
+                <div style="padding: 15px; text-align: center;">
+                    [Imagen del Calendario]
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Generador de Usuario e Iniciales</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .contenedor { 
+            background-color: #f8f9fa; 
+            padding: 20px; 
+            border-radius: 8px; 
+            max-width: 400px; 
+            border-left: 5px solid #17a2b8; 
+        }
+        input { margin: 5px 0 15px 0; padding: 8px; width: 90%; }
+        button { 
+            cursor: pointer; 
+            background-color: #17a2b8; 
+            color: white; 
+            border: none; 
+            padding: 10px 15px; 
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        #resultado { margin-top: 15px; font-size: 1.1em; color: #333; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h2>Generador de Perfil</h2>
+        
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" placeholder="Ej. Juan">
+        
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" placeholder="Ej. Lopez">
+        
+        <button onclick="generarPerfil()">Generar</button>
+        
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function generarPerfil() {
+            // 1. Capturamos los textos ingresados por el usuario
+            let nombre = document.getElementById('nombre').value;
+            let apellido = document.getElementById('apellido').value;
+            let cajaResultado = document.getElementById('resultado');
+
+            // 2. Validamos que las cajas no estén vacías
+            if (nombre === "" || apellido === "") {
+                cajaResultado.innerHTML = "Por favor, ingresa un nombre y un apellido.";
+                return;
+            }
+
+            // 3. Unimos los nombres y convertimos todo a minúsculas
+            let nombreUsuario = (nombre + apellido).toLowerCase();
+            
+            // 4. Extraemos la primera letra de cada variable y las convertimos a mayúsculas
+            let iniciales = nombre.charAt(0).toUpperCase() + apellido.charAt(0).toUpperCase();
+            
+            // 5. Imprimimos el resultado con el formato esperado usando un salto de línea (<br>)
+            cajaResultado.innerHTML = "Nombre de usuario: " + nombreUsuario + "<br>Iniciales: " + iniciales;
+        }
+    </script>
+</body>
+</html>

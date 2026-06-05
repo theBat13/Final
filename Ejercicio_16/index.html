@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoja de Registro de Préstamo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #f4f4f2;
+      font-family: sans-serif;
+      padding: 2rem;
+      color: #1a1a1a;
+    }
+
+    .reg-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .reg-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 4px solid #ffcc00;
+      padding-left: 12px;
+    }
+
+    .reg-card {
+      background: #ffffff;
+      border: 1px solid #e0ddd4;
+      border-top: 3px solid #ffcc00;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .reg-header {
+      background: #1a1a1a;
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 0.9fr 1.6fr 1.6fr;
+    }
+
+    .reg-header.sub-header {
+      background: #2a2a2a;
+    }
+
+    .reg-hcell {
+      padding: 10px 12px;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-right: 1px solid #333;
+      color: #ffcc00;
+    }
+
+    .reg-hcell:last-child {
+      border-right: none;
+    }
+
+    .reg-hcell.sub {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      color: #bbbbbb;
+    }
+
+    .reg-body {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 0.9fr 1.6fr 1.6fr;
+    }
+
+    .reg-cell {
+      padding: 14px 12px;
+      border-right: 0.5px solid #e0ddd4;
+      border-top: 0.5px solid #e0ddd4;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .reg-cell:last-child {
+      border-right: none;
+    }
+
+    .reg-label {
+      font-size: 11px;
+      color: #b38f00;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .reg-carrera {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .carr-opt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .carr-opt span {
+      font-size: 11px;
+      color: #5f5e5a;
+      font-weight: 500;
+    }
+
+    .carr-opt input[type=checkbox] {
+      width: 16px;
+      height: 16px;
+      accent-color: #cc9900;
+      cursor: pointer;
+    }
+
+    .rol-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .rol-opt {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #1a1a1a;
+      cursor: pointer;
+    }
+
+    .rol-opt input {
+      accent-color: #cc9900;
+      width: 15px;
+      height: 15px;
+    }
+
+    .time-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .time-field {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .time-field .lbl {
+      font-size: 11px;
+      color: #b38f00;
+      font-weight: 600;
+      min-width: 36px;
+      text-transform: uppercase;
+    }
+
+    .time-field input {
+      font-size: 12px;
+      padding: 5px 7px;
+      border: 0.5px solid #d3d1c7;
+      border-radius: 6px;
+      background: #f4f4f2;
+      color: #1a1a1a;
+      outline: none;
+    }
+
+    .time-field input:focus {
+      border-color: #cc9900;
+      box-shadow: 0 0 0 2px rgba(204,153,0,0.15);
+    }
+
+    .time-field input[type=date],
+    .time-field input[type=time] {
+      width: 130px;
+    }
+
+    .time-field input[type=text] {
+      width: 100px;
+    }
+
+    .main-input {
+      width: 100%;
+      padding: 7px 10px;
+      border: 0.5px solid #d3d1c7;
+      border-radius: 7px;
+      background: #f4f4f2;
+      color: #1a1a1a;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .main-input:focus {
+      border-color: #cc9900;
+      box-shadow: 0 0 0 2px rgba(204,153,0,0.15);
+    }
+
+    .grupo-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .grupo-row span {
+      font-size: 12px;
+      color: #888780;
+      white-space: nowrap;
+    }
+
+    .grupo-row input {
+      width: 70px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="reg-wrap">
+    <div class="reg-title">
+      📋 Hoja de Registro de Préstamo
+    </div>
+
+    <div class="reg-card">
+
+      <div class="reg-header">
+        <div class="reg-hcell">Nombre</div>
+        <div class="reg-hcell">Carrera</div>
+        <div class="reg-hcell">Alumno / Profesor</div>
+        <div class="reg-hcell">Préstamo</div>
+        <div class="reg-hcell">Entrega</div>
+      </div>
+
+      <div class="reg-header sub-header">
+        <div class="reg-hcell sub">Nombre completo y grupo</div>
+        <div class="reg-hcell sub">C · G · S · IP · IN</div>
+        <div class="reg-hcell sub">Rol</div>
+        <div class="reg-hcell sub">Equipo · Fecha · Hora · Firma</div>
+        <div class="reg-hcell sub">Fecha · Hora · Firma</div>
+      </div>
+
+      <div class="reg-body">
+
+        <div class="reg-cell">
+          <div class="reg-label">Nombre</div>
+          <input class="main-input" type="text" placeholder="Nombre completo">
+          <div class="grupo-row">
+            <span>Grupo:</span>
+            <input class="main-input" type="text" placeholder="Ej. 3A">
+          </div>
+        </div>
+
+        <div class="reg-cell">
+          <div class="reg-label">Carrera</div>
+          <div class="reg-carrera">
+            <div class="carr-opt"><span>C</span><input type="checkbox"></div>
+            <div class="carr-opt"><span>G</span><input type="checkbox"></div>
+            <div class="carr-opt"><span>S</span><input type="checkbox"></div>
+            <div class="carr-opt"><span>IP</span><input type="checkbox"></div>
+            <div class="carr-opt"><span>IN</span><input type="checkbox"></div>
+          </div>
+        </div>
+
+        <div class="reg-cell">
+          <div class="reg-label">Rol</div>
+          <div class="rol-opts">
+            <label class="rol-opt">
+              <input type="radio" name="rol" value="Alumno"> Alumno
+            </label>
+            <label class="rol-opt">
+              <input type="radio" name="rol" value="Profesor"> Profesor
+            </label>
+          </div>
+        </div>
+
+        <div class="reg-cell">
+          <div class="reg-label">Préstamo</div>
+          <input class="main-input" type="text" placeholder="Equipo prestado">
+          <div class="time-row">
+            <div class="time-field"><span class="lbl">Fecha</span><input type="date"></div>
+            <div class="time-field"><span class="lbl">Hora</span><input type="time"></div>
+            <div class="time-field"><span class="lbl">Firma</span><input type="text" placeholder="———"></div>
+          </div>
+        </div>
+
+        <div class="reg-cell">
+          <div class="reg-label">Entrega</div>
+          <div class="time-row">
+            <div class="time-field"><span class="lbl">Fecha</span><input type="date"></div>
+            <div class="time-field"><span class="lbl">Hora</span><input type="time"></div>
+            <div class="time-field"><span class="lbl">Firma</span><input type="text" placeholder="———"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones Matemáticas en JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .contenedor {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #ffcc00;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+        h2 {
+            color: #003366;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h2>Resultados Matemáticos</h2>
+        <p id="resultados"></p>
+    </div>
+
+    <script>
+        // 1. Declaramos las dos variables y les asignamos valores
+        let numero1 = 10;
+        let numero2 = 2;
+
+        // 2. Realizamos las operaciones matemáticas
+        let suma = numero1 + numero2;
+        let resta = numero1 - numero2;
+        let division = numero1 / numero2;
+        let exponenciacion = numero1 ** numero2; // El doble asterisco (**) es para elevar a la potencia
+
+        // 3. Preparamos el texto que vamos a imprimir (usamos <br> para saltos de línea)
+        let textoSalida = "<strong>Valores iniciales:</strong> " + numero1 + " y " + numero2 + "<br><br>";
+        textoSalida += "<strong>Suma:</strong> " + suma + "<br>";
+        textoSalida += "<strong>Resta:</strong> " + resta + "<br>";
+        textoSalida += "<strong>División:</strong> " + division + "<br>";
+        textoSalida += "<strong>Exponenciación:</strong> " + exponenciacion;
+
+        // 4. Imprimimos el resultado en la página web
+        document.getElementById("resultados").innerHTML = textoSalida;
+    </script>
+
+</body>
+</html>

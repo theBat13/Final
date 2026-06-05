@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salidas de Texto en JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .contenedor {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #003366;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Mi Perfil de Estudiante</h1>
+        
+        <p id="info-matricula"></p>
+        
+        <hr>
+        <p><em>Nota: Revisa la consola de tu navegador (presionando F12) para ver el mensaje oculto.</em></p>
+    </div>
+
+    <script>
+        // 1. window.alert(): Lanza una ventana emergente en el navegador al abrir la página.
+        window.alert("¡Bienvenido a mi página de presentación!");
+
+        // 2. document.write(): Escribe contenido directamente en el documento HTML.
+        // Ojo: Si se usa después de que la página cargó por completo, puede borrar todo el HTML.
+        document.write("<p><strong>Nombre:</strong> Alan Martinez</p>");
+        document.write("<p><strong>Facultad:</strong> Facultad de Ingeniería Mochis</p>");
+
+        // 3. innerHTML: Busca un elemento por su ID y le inyecta contenido HTML adentro.
+        // Esta es la forma más común y segura de modificar el texto en la web.
+        document.getElementById("info-matricula").innerHTML = "<strong>Carrera:</strong> Ingeniería de Software <br> <strong>Rol:</strong> Alumno";
+
+        // 4. console.log(): Imprime un mensaje en la consola de herramientas de desarrollo.
+        // El usuario normal no lo ve, sirve para que los programadores revisen que todo funciona.
+        console.log("Sistema cargado. El registro del alumno Alan Martinez se inicializó correctamente.");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC para Mujer</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .contenedor { 
+            background-color: #f8f9fa; 
+            padding: 20px; 
+            border-radius: 8px; 
+            max-width: 400px; 
+            border-left: 5px solid #ff4da6;
+        }
+        input { margin: 5px 0 15px 0; padding: 8px; width: 90%; }
+        button { 
+            cursor: pointer; 
+            background-color: #ff4da6; 
+            color: white;
+            border: none; 
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        #resultado {
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h2>Calculadora de IMC</h2>
+        
+        <label for="peso">Peso (en kilogramos):</label>
+        <input type="number" id="peso" placeholder="Ej. 65">
+
+        <label for="estatura">Estatura (en metros):</label>
+        <input type="number" id="estatura" step="0.01" placeholder="Ej. 1.65">
+
+        <button onclick="calcularIMC()">Calcular mi IMC</button>
+
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function calcularIMC() {
+            let peso = Number(document.getElementById('peso').value);
+            let estatura = Number(document.getElementById('estatura').value);
+            let cajaResultado = document.getElementById('resultado');
+
+            // 1. Validamos que los datos tengan sentido matemático
+            if (peso <= 0 || estatura <= 0) {
+                cajaResultado.innerHTML = "Por favor, ingresa valores válidos mayores a 0.";
+                return;
+            }
+
+            // 2. Realizamos el cálculo usando la exponenciación (**)
+            let imc = peso / (estatura ** 2);
+            
+            // 3. Evaluamos el grado de IMC con condicionales
+            let grado = "";
+            
+            if (imc < 18.5) {
+                grado = "Bajo peso";
+            } else if (imc >= 18.5 && imc <= 24.9) {
+                grado = "Peso normal (Saludable)";
+            } else if (imc >= 25.0 && imc <= 29.9) {
+                grado = "Sobrepeso";
+            } else {
+                grado = "Obesidad";
+            }
+
+            // 4. Imprimimos el resultado. Usamos toFixed(2) para dejar solo 2 decimales.
+            cajaResultado.innerHTML = "Tu Índice de Masa Corporal es: <strong>" + imc.toFixed(2) + "</strong><br>" +
+                                      "Grado actual: <strong>" + grado + "</strong>";
+        }
+    </script>
+</body>
+</html>

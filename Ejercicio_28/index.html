@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Temperatura</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .contenedor { 
+            background-color: #f8f9fa; 
+            padding: 20px; 
+            border-radius: 8px; 
+            max-width: 400px; 
+            border-left: 5px solid #ff5733; 
+        }
+        input { margin: 5px 0 15px 0; padding: 8px; width: 90%; }
+        button { 
+            cursor: pointer; 
+            background-color: #ff5733; 
+            color: white; 
+            border: none; 
+            padding: 10px 15px; 
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        #resultado { margin-top: 15px; font-size: 1.1em; color: #333; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h2>Conversor Celsius a Fahrenheit</h2>
+        
+        <label for="celsius">Temperatura en Celsius:</label>
+        <input type="number" id="celsius" step="0.1" placeholder="Ej. 25">
+        
+        <button onclick="convertirTemperatura()">Convertir</button>
+        
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function convertirTemperatura() {
+            // 1. Capturamos el valor ingresado en grados Celsius
+            let celsius = Number(document.getElementById('celsius').value);
+            let cajaResultado = document.getElementById('resultado');
+
+            // 2. Aplicamos la fórmula: Fahrenheit = Celsius * 9/5 + 32
+            let fahrenheit = (celsius * 9 / 5) + 32;
+            
+            // 3. Imprimimos el resultado exactamente con el formato solicitado
+            cajaResultado.innerHTML = celsius + " Celsius = " + fahrenheit + " Fahrenheit";
+        }
+    </script>
+</body>
+</html>
